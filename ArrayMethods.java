@@ -20,7 +20,7 @@ public class ArrayMethods{
    public static int columnSum(int[][] ary, int y){
      int sum = 0;
      for(int x = 0; x < ary.length; x++){
-       if(y < ary[x].length-1){
+       if(y < ary[x].length){
          sum+=ary[x][y];
        }
      }
@@ -43,7 +43,17 @@ public class ArrayMethods{
     //Index i of the return array contains the sum of elements in row i.
 
     public static int[] allColSums(int[][] ary){
-      return ary[0];
+      int largest = 0;
+      for(int x = 0; x < ary.length; x++){
+        if(largest < ary[x].length){
+          largest = ary[x].length;
+        }
+      }
+      int[] sums = new int[largest];
+      for(int y = 0; y < largest; y++){
+        sums[y] = columnSum(ary, y);
+      }
+      return sums;
     }
     //Returns an array with the column sum of each column of ary.
     //When a row is not long enough to reach the column count it as a zero. (NO indexOutOfBounds should ever occur)
