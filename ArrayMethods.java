@@ -65,6 +65,11 @@ public class ArrayMethods{
    *PART 3 - use prior methods where appropriate
    */
    public static boolean isRowMagic(int[][] ary){
+     for(int x = 0; x < ary.length-1; x++){
+       if(rowSum(ary, x) != rowSum(ary, x+1)){
+         return false;
+       }
+     }
      return true;
    }
      //checks if the array is row-magic (this means that every row has the same row sum).
