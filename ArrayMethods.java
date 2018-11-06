@@ -17,10 +17,16 @@ public class ArrayMethods{
     //returns the sum of the elements in Row x of ary.
     //When x is past the last row count it as a zero. (NO indexOutOfBounds should ever occur)
 
-   public static int columnSum(int[][] ary, int x){
-     return x;
+   public static int columnSum(int[][] ary, int y){
+     int sum = 0;
+     for(int x = 0; x < ary.length; x++){
+       if(y < ary[x].length-1){
+         sum+=ary[x][y];
+       }
+     }
+     return sum;
    }
-    //returns the sum of the elements in Column x of ary (careful with rows of different lengths!).
+    //returns the sum of the elements in Column y of ary (careful with rows of different lengths!).
     //When a row is not long enough to reach the column count it as a zero. (NO indexOutOfBounds should ever occur)
 
    /*
